@@ -12,9 +12,8 @@ import os
 seed = int(time())
 np.random.seed(seed)
 
-
 # load data
-tr, vr = loadData('./ml-1m/ratings.dat', delimiter='::',
+tr, vr = loadData('./ml-100k/ratings.dat', delimiter=',',
                   seed=seed, transpose=True, valfrac=0.1)
 
 tm = np.greater(tr, 1e-12).astype('float32')  # masks indicating non-zero entries
