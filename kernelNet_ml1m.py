@@ -123,6 +123,9 @@ with tf.Session() as sess:
         error = (vm * (np.clip(pre, 1., 5.) - vr) ** 2).sum() / vm.sum() #compute validation error
         error_train = (tm * (np.clip(pre, 1., 5.) - tr) ** 2).sum() / tm.sum() #compute train error
         print(pre)
+        print(vr)
+        print('Tr')
+        print(tr)
         print('.-^-._' * 12)
         print('epoch:', i, 'validation rmse:', np.sqrt(error), 'train rmse:', np.sqrt(error_train))
         print('.-^-._' * 12)
