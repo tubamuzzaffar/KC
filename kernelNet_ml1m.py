@@ -27,9 +27,9 @@ n_hid = 500
 lambda_2 = float(sys.argv[1]) if len(sys.argv) > 1 else 60.
 lambda_s = float(sys.argv[2]) if len(sys.argv) > 2 else 0.013
 n_layers = 2
-output_every = 1 # evaluate performance on test set; breaks l-bfgs loop
+output_every = 50 # evaluate performance on test set; breaks l-bfgs loop
 #n_epoch = n_layers * 10 * output_every
-n_epoch= 1000
+n_epoch= 20
 verbose_bfgs = True
 use_gpu = True
 if not use_gpu:
