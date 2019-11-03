@@ -120,7 +120,7 @@ with tf.Session() as sess:
     for i in range(int(n_epoch / output_every)):
         optimizer.minimize(sess, feed_dict={R: tr}) #do maxiter optimization steps
         pre = sess.run(prediction, feed_dict={R: tr}) #predict ratings
-
+        print(pre)
         error = (vm * (np.clip(pre, 1., 5.) - vr) ** 2).sum() / vm.sum() #compute validation error
         error_train = (tm * (np.clip(pre, 1., 5.) - tr) ** 2).sum() / tm.sum() #compute train error
 
