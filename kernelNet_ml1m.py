@@ -28,8 +28,8 @@ lambda_2 = float(sys.argv[1]) if len(sys.argv) > 1 else 60.
 lambda_s = float(sys.argv[2]) if len(sys.argv) > 2 else 0.013
 n_layers = 2
 output_every = 50 # evaluate performance on test set; breaks l-bfgs loop
-#n_epoch = n_layers * 10 * output_every
-n_epoch= 20
+n_epoch = n_layers * 10 * output_every
+#n_epoch= 20
 verbose_bfgs = True
 use_gpu = True
 if not use_gpu:
@@ -134,10 +134,3 @@ with tf.Session() as sess:
             file.write(str(np.sqrt(error)) + ' ' + str(np.sqrt(error_train))
                        + ' ' + str(seed) + '\n')
             file.close()
-
-    with open('summary_ml1m.txt', 'a') as file:
-        for a in sys.argv[1:]:
-            file.write(a + ' ')
-        file.write(str(np.sqrt(error)) + ' ' + str(np.sqrt(error_train))
-                   + ' ' + str(seed) + '\n')
-        file.close()
