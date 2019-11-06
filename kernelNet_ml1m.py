@@ -100,6 +100,7 @@ for i in range(n_layers):
     y, reg_loss = kernel_layer(y, n_hid, name=str(i))
     reg_losses = reg_loss if reg_losses is None else reg_losses + reg_loss
 prediction, reg_loss = kernel_layer(y, n_u, activation=tf.identity, name='out')
+tf.print(prediction)
 reg_losses = reg_losses + reg_loss
 
 # Compute loss (symbolic)
