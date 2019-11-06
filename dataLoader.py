@@ -6,7 +6,7 @@ import numpy as np
 from time import time
 
 
-def loadData(path='./', valfrac=0.1, delimiter='::', seed=1234,
+def loadData(path='./', valfrac=0.1, delimiter=',', seed=1234,
              transpose=False):
     '''
     loads ml-1m data
