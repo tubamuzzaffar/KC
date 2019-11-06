@@ -43,6 +43,9 @@ def loadData(path='./', valfrac=0.1, delimiter='::', seed=1234,
 
     trainRatings = np.zeros((n_u, n_m), dtype='float32')
     validRatings = np.zeros((n_u, n_m), dtype='float32')
+    
+    print(trainRatings)
+    print(validRatings)
 
     for i in range(n_r):
         u_id = data[idx[i], 0]
