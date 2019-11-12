@@ -132,12 +132,12 @@ with tf.Session() as sess:
         print('.-^-._' * 12)
         print('epoch:', i, 'validation rmse:', np.sqrt(error), 'train rmse:', np.sqrt(error_train))
         print('.-^-._' * 12)
-        print(processing)
+        print(processing_time)
         
         with open('results.txt', 'a') as file:
             for a in sys.argv[1:]:
                 file.write(i + ' ')
                 file.write(n_epoch + ' ')
             file.write(str(np.sqrt(error)) + ' ' + str(np.sqrt(error_train))
-                       + ' ' + str(seed) + "time: "+ str(processing) + '\n')
+                       + ' ' + str(seed) + "time: "+ str(processing_time) + '\n')
             file.close()
