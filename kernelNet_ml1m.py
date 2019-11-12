@@ -9,7 +9,7 @@ import sys
 from dataLoader import loadData
 import os
 
-seed = int(time())
+seed = int(time.time())
 np.random.seed(seed)
 
 # load data
