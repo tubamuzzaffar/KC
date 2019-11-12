@@ -119,10 +119,12 @@ init = tf.global_variables_initializer()
 with tf.Session() as sess:
     sess.run(init)
     for i in range(int(n_epoch / output_every)):
+        t = time.time()
         optimizer.minimize(sess, feed_dict={R: tr}) #do maxiter optimization steps
         pre = sess.run(prediction, feed_dict={R: tr}) #predict ratings
         error = (vm * (np.clip(pre, 1., 5.) - vr) ** 2).sum() / vm.sum() #compute validation error
         error_train = (tm * (np.clip(pre, 1., 5.) - tr) ** 2).sum() / tm.sum() #compute train error
+        processing_time = (time.time() - t)
         print(pre)
         print(vr)
         print('Tr')
@@ -130,11 +132,12 @@ with tf.Session() as sess:
         print('.-^-._' * 12)
         print('epoch:', i, 'validation rmse:', np.sqrt(error), 'train rmse:', np.sqrt(error_train))
         print('.-^-._' * 12)
+        print(processing)
         
         with open('results.txt', 'a') as file:
             for a in sys.argv[1:]:
                 file.write(i + ' ')
                 file.write(n_epoch + ' ')
             file.write(str(np.sqrt(error)) + ' ' + str(np.sqrt(error_train))
-                       + ' ' + str(seed) + '\n')
+                       + ' ' + str(seed) + "time: "+ str(processing)'\n')
             file.close()
