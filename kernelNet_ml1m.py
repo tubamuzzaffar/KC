@@ -139,5 +139,5 @@ with tf.Session() as sess:
                 file.write(i + ' ')
                 file.write(n_epoch + ' ')
             file.write(str(np.sqrt(error)) + ' ' + str(np.sqrt(error_train))
-                       + ' ' + str(seed) + "time: "+ str(processing)'\n')
+                       + ' ' + str(seed) + "time: "+ str(processing) + '\n')
             file.close()
