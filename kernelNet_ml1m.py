@@ -4,7 +4,7 @@ written by Lorenz Muller
 
 import numpy as np
 import tensorflow as tf
-from time import time
+import time
 import sys
 from dataLoader import loadData
 import os
